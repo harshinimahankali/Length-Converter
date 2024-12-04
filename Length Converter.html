@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(247, 246, 246);
+            background-color: rgb(248, 133, 94);
+        }
+
+        .container {
+            padding: 10px 25px;
+            border-radius: 25px;
+            width: 490px;
+            background-color: palevioletred;
+
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 0.5em;
+            font-family: sans-serif;
+        }
+
+        select {
+            width: 100%;
+            height: 40px;
+            font-size: 1.2em;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            padding: 0 1em;
+            background-color: rgb(221, 224, 51);
+        }
+
+
+        input {
+            width: 470px;
+            height: 40px;
+            font-size: 1.2em;
+            margin: 0.5em 0;
+            outline: none;
+            border: none;
+            padding: 0 0.5em;
+            border-radius: 10px;
+        }
+
+        button {
+            width: 100%;
+            margin: 0.5em 0;
+            cursor: pointer;
+            height: 50%;
+            font-size: 1.5em;
+            background-color: rgb(76, 183, 216);
+            border-radius: 5px;
+            outline: none;
+            border: none;
+
+            padding: 10px;
+
+        }
+
+        .results {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1><i>Length Converter</i></h1>
+        <input type="text" id="input" placeholder="Enter value">
+        <br>
+        From: <select name="" id="from">
+            <option value="cm">centimeter(cm)</option>
+            <option value="m">meter(m)</option>
+            <option value="dm">decimeter(dm)</option>
+            <option value="dam">dekameter(dam)</option>
+            <option value="hm">hectameter(hm)</option>
+            <option value="ft">foot(ft)</option>
+            <option value="in">inch(in)</option>
+            <option value="km">kilometer(km)</option>
+        </select>
+        To: <select name="" id="to">
+            <option value="cm">centimeter(cm)</option>
+            <option value="m">meter(m)</option>
+            <option value="dm">decimeter(dm)</option>
+            <option value="dam">dekameter(dam)</option>
+            <option value="hm">hectameter(hm)</option>
+            <option value="ft">foot(ft)</option>
+            <option value="in">inch(in)</option>
+            <option value="km">kilometer(km)</option>
+        </select><br>
+        <button onclick="convert()">Enter</button>
+        <div id="results">
+        </div>
+    </div>
+    <script>
+        function convert() {
+            let input = document.getElementById("input").value
+            let from = document.getElementById("from").value
+            let to = document.getElementById("to").value
+            let results;
+            if (from === "cm" && to === "m") {
+                result = input / 100;
+            } else if (from === "cm" && to === "dm") {
+                result = input / 10;
+            } else if (from === "cm" && to === "dam") {
+                result = input / 1000;
+            } else if (from === "cm" && to === "hm") {
+                result = input / 10000;
+            } else if (from === "cm" && to === "ft") {
+                result = input / 30.48;
+            } else if (from === "cm" && to === "in") {
+                result = input / 2.54;
+            } else if (from === "cm" && to === "km") {
+                result = input / 100000;
+            } else if (from === "m" && to === "cm") {
+                result = input * 100;
+            } else if (from === "m" && to === "dm") {
+                result = input * 10;
+            } else if (from === "m" && to === "dam") {
+                result = input / 10;
+            } else if (from === "m" && to === "hm") {
+                result = input / 100;
+            } else if (from === "m" && to === "ft") {
+                result = input * 3.28084;
+            } else if (from === "m" && to === "in") {
+                result = input * 39.3701;
+            } else if (from === "m" && to === "km") {
+                result = input / 1000;
+            } else if (from === "dm" && to === "cm") {
+                result = input * 10;
+            } else if (from === "dm" && to === "m") {
+                result = input / 10;
+            } else if (from === "dm" && to === "dam") {
+                result = input / 100;
+            } else if (from === "dm" && to === "hm") {
+                result = input / 1000;
+            } else if (from === "dm" && to === "ft") {
+                result = input / 3.048;
+            } else if (from === "dm" && to === "in") {
+                result = input / 0.254;
+            } else if (from === "dm" && to === "km") {
+                result = input / 10000;
+            } else if (from === "dam" && to === "cm") {
+                result = input * 1000;
+            } else if (from === "dam" && to === "m") {
+                result = input * 10;
+            } else if (from === "dam" && to === "dm") {
+                result = input * 100;
+            } else if (from === "dam" && to === "hm") {
+                result = input / 10;
+            } else if (from === "dam" && to === "ft") {
+                result = input * 32.8084;
+            } else if (from === "dam" && to === "in") {
+                result = input * 393.701;
+            } else if (from === "dam" && to === "km") {
+                result = input / 100;
+            } else if (from === "hm" && to === "cm") {
+                result = input * 10000;
+            } else if (from === "hm" && to === "m") {
+                result = input * 100;
+            } else if (from === "hm" && to === "dm") {
+                result = input * 1000;
+            } else if (from === "hm" && to === "dam") {
+                result = input * 10;
+            } else if (from === "hm" && to === "ft") {
+                result = input * 328.084;
+            } else if (from === "hm" && to === "in") {
+                result = input * 3937.01;
+            } else if (from === "hm" && to === "km") {
+                result = input / 10;
+            } else if (from === "ft" && to === "cm") {
+                result = input * 30.48;
+            } else if (from === "ft" && to === "m") {
+                result = input / 3.28084;
+            } else if (from === "ft" && to === "dm") {
+                result = input * 3.048;
+            } else if (from === "ft" && to === "dam") {
+                result = input / 32.8084;
+            } else if (from === "ft" && to === "hm") {
+                result = input / 328.084;
+            } else if (from === "ft" && to === "in") {
+                result = input * 12;
+            } else if (from === "ft" && to === "km") {
+                result = input / 3280.84;
+            } else if (from === "in" && to === "cm") {
+                result = input * 2.54;
+            } else if (from === "in" && to === "m") {
+                result = input / 39.3701;
+            } else if (from === "in" && to === "dm") {
+                result = input * 0.254;
+            } else if (from === "in" && to === "dam") {
+                result = input / 393.701;
+            } else if (from === "in" && to === "hm") {
+                result = input / 3937.01;
+            } else if (from === "in" && to === "ft") {
+                result = input / 12;
+            } else if (from === "in" && to === "km") {
+                result = input / 39370.1;
+            } else if (from === "km" && to === "cm") {
+                result = input * 100000;
+            } else if (from === "km" && to === "m") {
+                result = input * 1000;
+            } else if (from === "km" && to === "dm") {
+                result = input * 10000;
+            } else if (from === "km" && to === "dam") {
+                result = input * 100;
+            } else if (from === "km" && to === "hm") {
+                result = input * 10;
+            } else if (from === "km" && to === "ft") {
+                result = input * 3280.84;
+            } else if (from === "km" && to === "in") {
+                result = input
+
+            }
+            else if (from === to) {
+                result = input;
+            } else {
+                result = alert("Conversion not implemented.");
+            }
+
+            document.getElementById("results").textContent = `${input} ${from} = ${result} ${to}`
+
+        }
+    </script>
+</body>
+
+</html>
